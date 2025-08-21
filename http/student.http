@@ -1,0 +1,28 @@
+### Hello
+GET http://localhost:8060/app/
+
+
+### Save student by post
+POST http://localhost:8060/app/student
+Content-Type: application/json
+
+{
+  "firstName": "",
+  "lastName": "hkj",
+  "age": 20,
+  "dateOfBirth": "2005-12-28",
+  "email": "gg@gmail.com",
+  "phoneNumber": "01625686191",
+  "createdBy": "me",
+  "updatedBy": "me"
+}
+
+
+
+### Get Student By ID
+GET http://localhost:8060/app/student/2
+
+
+
+### Student Batch Data Processing
+POST http://localhost:8060/app/student/batch-data-processing

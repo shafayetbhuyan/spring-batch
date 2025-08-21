@@ -2,20 +2,27 @@ package com.shafayet.spring_batch.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 
 @Entity
 @Table(name = "student")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Student {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "first_name")
     private String firstName;
@@ -25,7 +32,7 @@ public class Student {
     private Integer age;
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date_of_birth")
-    private LocalDateTime dateOfBirth;
+    private LocalDate dateOfBirth;
     @Column(name = "email")
     private String email;
     @Column(name="phone_number")
@@ -42,9 +49,6 @@ public class Student {
     private String createdBy;
     @Column(name = "updated_by")
     private String updatedBy;
-
-    public Student() {
-    }
 
     public Long getId() {
         return id;
@@ -78,11 +82,11 @@ public class Student {
         this.age = age;
     }
 
-    public LocalDateTime getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDateTime dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
